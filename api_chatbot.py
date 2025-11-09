@@ -24,13 +24,17 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",  # Vite dev server
-        "http://localhost:8080",  # Vite dev server alternativo
-        "http://localhost:3000",  # React dev server alternativo
+        # Local development
+        "http://localhost:5173",
+        "http://localhost:8080",
+        "http://localhost:3000",
         "http://127.0.0.1:5173",
         "http://127.0.0.1:8080",
         "http://127.0.0.1:3000",
-        "http://192.168.0.120:8080",  # Network
+        "http://192.168.0.120:8080",
+        # Production - Añade tu URL de Lovable aquí cuando la tengas
+        # "https://xxxxx.lovableproject.com",
+        "*",  # ⚠️ TEMPORAL: Permite todo (cambiar después por la URL específica)
     ],
     allow_credentials=True,
     allow_methods=["*"],
