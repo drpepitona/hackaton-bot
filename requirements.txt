@@ -57,9 +57,9 @@ python-dotenv==1.0.0
 pytz==2023.3
 python-dateutil==2.8.2
 
-# Technical Analysis
-ta-lib==0.4.28
-ta==0.11.0
+# Technical Analysis (opcional - comentado porque requiere librerías del sistema)
+# ta-lib==0.4.28
+# ta==0.11.0
 
 # Sentiment Analysis
 vaderSentiment==3.3.2
