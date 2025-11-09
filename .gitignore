@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Data (archivos grandes)
+data/raw/*.csv
+data/raw/Kanggle/*.csv
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+analisis_final_*.txt
+output.txt
+
+# Models (pueden ser muy grandes)
+*.pkl
+*.h5
+*.pth
+data/models/gpt2_finetuned/
+
+# Sensitive
+*.key
+secrets.json

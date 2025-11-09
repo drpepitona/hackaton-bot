@@ -1,0 +1,138 @@
+{
+  "war_russia": {
+    "alpha": 0.27400090212373873,
+    "beta": 1.6980018042474776,
+    "token": 7.043470246227992,
+    "volatilidad": 0.0065334536164985,
+    "num_eventos": 1828,
+    "pct_alcista": 53.22757111597374
+  },
+  "war_middle_east": {
+    "alpha": 0.2759189659734615,
+    "beta": 1.701837931946923,
+    "token": 7.280032458427534,
+    "volatilidad": 0.0067891954631282,
+    "num_eventos": 2760,
+    "pct_alcista": 54.31159420289855
+  },
+  "terrorism": {
+    "alpha": 0.277256254110663,
+    "beta": 1.7045125082213262,
+    "token": 7.444965362058607,
+    "volatilidad": 0.0069675005480884,
+    "num_eventos": 2063,
+    "pct_alcista": 53.6597188560349
+  },
+  "gold_demand": {
+    "alpha": 0.184581815999735,
+    "beta": 0.9037454479992051,
+    "token": 7.3976631142576785,
+    "volatilidad": 0.006916363199947,
+    "num_eventos": 280,
+    "pct_alcista": 53.92857142857142
+  },
+  "elections_us": {
+    "alpha": 0.1807792499252375,
+    "beta": 0.8923377497757126,
+    "token": 6.694185404627679,
+    "volatilidad": 0.0061558499850475,
+    "num_eventos": 1133,
+    "pct_alcista": 54.45719329214474
+  },
+  "financial_crisis": {
+    "alpha": 0.24490751050130363,
+    "beta": 1.5151711780799315,
+    "token": 8.102252793136714,
+    "volatilidad": 0.0076780785386621,
+    "num_eventos": 384,
+    "pct_alcista": 55.72916666666666
+  },
+  "trade_general": {
+    "alpha": 0.1811306508239905,
+    "beta": 0.8933919524719716,
+    "token": 6.759194846823653,
+    "volatilidad": 0.0062261301647981,
+    "num_eventos": 592,
+    "pct_alcista": 54.391891891891895
+  },
+  "elections_global": {
+    "alpha": 0.1817730080709785,
+    "beta": 0.8953190242129355,
+    "token": 6.878031441907752,
+    "volatilidad": 0.0063546016141957,
+    "num_eventos": 752,
+    "pct_alcista": 55.98404255319149
+  },
+  "oil_supply": {
+    "alpha": 0.182803335863483,
+    "beta": 0.8984100075904491,
+    "token": 7.06864289255425,
+    "volatilidad": 0.0065606671726966,
+    "num_eventos": 28,
+    "pct_alcista": 35.714285714285715
+  },
+  "fed_rates": {
+    "alpha": 0.21112017549717718,
+    "beta": 1.177800438742943,
+    "token": 5.797714085948151,
+    "volatilidad": 0.0051866959161962,
+    "num_eventos": 298,
+    "pct_alcista": 53.02013422818792
+  },
+  "us_housing_data": {
+    "alpha": 0.1741944906287165,
+    "beta": 0.8725834718861496,
+    "token": 5.475999764291715,
+    "volatilidad": 0.0048388981257433,
+    "num_eventos": 48,
+    "pct_alcista": 58.333333333333336
+  },
+  "debt_crisis": {
+    "alpha": 0.23732909155798762,
+    "beta": 1.4976825189799716,
+    "token": 7.023780904495416,
+    "volatilidad": 0.0065121679319981,
+    "num_eventos": 507,
+    "pct_alcista": 54.24063116370809
+  },
+  "us_employment_data": {
+    "alpha": 0.19443859871572952,
+    "beta": 1.0802870874065351,
+    "token": 5.951058071057808,
+    "volatilidad": 0.005352472493769,
+    "num_eventos": 225,
+    "pct_alcista": 55.55555555555556
+  },
+  "us_gdp_data": {
+    "alpha": 0.2154885178985935,
+    "beta": 1.137695957905255,
+    "token": 9.491286777995024,
+    "volatilidad": 0.009179730527017,
+    "num_eventos": 59,
+    "pct_alcista": 64.40677966101694
+  },
+  "us_inflation_data": {
+    "alpha": 0.1834384418133425,
+    "beta": 0.9003153254400276,
+    "token": 7.1861379919756585,
+    "volatilidad": 0.0066876883626685,
+    "num_eventos": 23,
+    "pct_alcista": 65.21739130434783
+  },
+  "ecb_policy": {
+    "alpha": 0.23837813059659296,
+    "beta": 1.2459453264914826,
+    "token": 10.0,
+    "volatilidad": 0.0097296884327655,
+    "num_eventos": 10,
+    "pct_alcista": 30.0
+  },
+  "brexit": {
+    "alpha": 0.1805018306994315,
+    "beta": 0.8915054920982945,
+    "token": 6.642862630018617,
+    "volatilidad": 0.0061003661398863,
+    "num_eventos": 10,
+    "pct_alcista": 50.0
+  }
+}
