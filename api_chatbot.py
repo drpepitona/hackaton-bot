@@ -157,12 +157,29 @@ async def analyze_news(request: AnalysisRequest):
 
 
 @app.post("/chat")
-async def chat_endpoint(request: AnalysisRequest):
+async def chat_endpoint(request: dict):
     """
     Endpoint alternativo para compatibilidad con frontend
-    Redirige a /analyze
+    Acepta diferentes formatos de mensaje
     """
-    return await analyze_news(request)
+    try:
+        # Extraer el mensaje (puede venir como 'pregunta', 'message', 'content', etc.)
+        mensaje = request.get('pregunta') or request.get('message') or request.get('content') or request.get('text') or ""
+        vix = request.get('vix', 20.0)
+        
+        if not mensaje:
+            raise HTTPException(status_code=422, detail="No se encontró mensaje en la petición")
+        
+        # Crear request válido
+        analysis_request = AnalysisRequest(pregunta=mensaje, vix=vix)
+        
+        # Llamar a la función de análisis
+        return await analyze_news(analysis_request)
+        
+    except Exception as e:
+        logger.error(f"Error en /chat endpoint: {str(e)}")
+        logger.error(f"Request recibido: {request}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/categories")
