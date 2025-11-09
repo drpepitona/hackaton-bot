@@ -32,9 +32,8 @@ app.add_middleware(
         "http://127.0.0.1:8080",
         "http://127.0.0.1:3000",
         "http://192.168.0.120:8080",
-        # Production - Añade tu URL de Lovable aquí cuando la tengas
-        # "https://xxxxx.lovableproject.com",
-        "*",  # ⚠️ TEMPORAL: Permite todo (cambiar después por la URL específica)
+        # Production
+        "https://news-bot-drag.lovable.app",  # ✅ Frontend en producción
     ],
     allow_credentials=True,
     allow_methods=["*"],
