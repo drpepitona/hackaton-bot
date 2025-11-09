@@ -1,0 +1,134 @@
+{
+  "GDPC1": {
+    "nombre": "PIB Real (Producto Interno Bruto)",
+    "unidad": "Miles de millones de dólares",
+    "frecuencia": "Trimestral",
+    "impacto": "ALTO - Indicador principal de salud económica",
+    "observaciones": 102,
+    "fecha_inicio": "2000-01-01 00:00:00",
+    "fecha_fin": "2025-04-01 00:00:00",
+    "ultimo_valor": 23770.976,
+    "valores_faltantes": 0
+  },
+  "UNRATE": {
+    "nombre": "Tasa de Desempleo",
+    "unidad": "Porcentaje",
+    "frecuencia": "Mensual",
+    "impacto": "ALTO - Impacta decisiones de Fed y mercados",
+    "observaciones": 308,
+    "fecha_inicio": "2000-01-01 00:00:00",
+    "fecha_fin": "2025-08-01 00:00:00",
+    "ultimo_valor": 4.3,
+    "valores_faltantes": 0
+  },
+  "CPIAUCSL": {
+    "nombre": "Índice de Precios al Consumidor (CPI)",
+    "unidad": "Índice 1982-84=100",
+    "frecuencia": "Mensual",
+    "impacto": "ALTO - Medida principal de inflación",
+    "observaciones": 309,
+    "fecha_inicio": "2000-01-01 00:00:00",
+    "fecha_fin": "2025-09-01 00:00:00",
+    "ultimo_valor": 324.368,
+    "valores_faltantes": 0
+  },
+  "VIXCLS": {
+    "nombre": "Índice de Volatilidad CBOE (VIX)",
+    "unidad": "Índice",
+    "frecuencia": "Diaria",
+    "impacto": "ALTO - \"Índice del miedo\", mide volatilidad esperada",
+    "observaciones": 6744,
+    "fecha_inicio": "2000-01-03 00:00:00",
+    "fecha_fin": "2025-11-06 00:00:00",
+    "ultimo_valor": 19.5,
+    "valores_faltantes": 215
+  },
+  "DGS10": {
+    "nombre": "Rendimiento Tesoro USA 10 años",
+    "unidad": "Porcentaje",
+    "frecuencia": "Diaria",
+    "impacto": "ALTO - Tasa de referencia global, afecta todos los mercados",
+    "observaciones": 6743,
+    "fecha_inicio": "2000-01-03 00:00:00",
+    "fecha_fin": "2025-11-05 00:00:00",
+    "ultimo_valor": 4.17,
+    "valores_faltantes": 278
+  },
+  "RBXMBIS": {
+    "nombre": "Tipo Cambio Real Efectivo - Área del Euro",
+    "unidad": "Índice",
+    "frecuencia": "Mensual",
+    "impacto": "MEDIO - Competitividad comercial europea",
+    "observaciones": 309,
+    "fecha_inicio": "2000-01-01 00:00:00",
+    "fecha_fin": "2025-09-01 00:00:00",
+    "ultimo_valor": 105.33,
+    "valores_faltantes": 0
+  },
+  "RBJPBIS": {
+    "nombre": "Tipo Cambio Real Efectivo - Japón",
+    "unidad": "Índice",
+    "frecuencia": "Mensual",
+    "impacto": "MEDIO - Influye en exportaciones japonesas",
+    "observaciones": 309,
+    "fecha_inicio": "2000-01-01 00:00:00",
+    "fecha_fin": "2025-09-01 00:00:00",
+    "ultimo_valor": 71.48,
+    "valores_faltantes": 0
+  },
+  "RBHKBIS": {
+    "nombre": "Tipo Cambio Real Efectivo - Hong Kong",
+    "unidad": "Índice",
+    "frecuencia": "Mensual",
+    "impacto": "BAJO - Hub financiero asiático",
+    "observaciones": 309,
+    "fecha_inicio": "2000-01-01 00:00:00",
+    "fecha_fin": "2025-09-01 00:00:00",
+    "ultimo_valor": 97.02,
+    "valores_faltantes": 0
+  },
+  "RBAUBIS": {
+    "nombre": "Tipo Cambio Real Efectivo - Australia",
+    "unidad": "Índice",
+    "frecuencia": "Mensual",
+    "impacto": "BAJO - Commodities y mercados emergentes",
+    "observaciones": 309,
+    "fecha_inicio": "2000-01-01 00:00:00",
+    "fecha_fin": "2025-09-01 00:00:00",
+    "ultimo_valor": 105.71,
+    "valores_faltantes": 0
+  },
+  "RBCNBIS": {
+    "nombre": "Tipo Cambio Real Efectivo - China",
+    "unidad": "Índice",
+    "frecuencia": "Mensual",
+    "impacto": "ALTO - Segunda economía mundial, gran impacto",
+    "observaciones": 309,
+    "fecha_inicio": "2000-01-01 00:00:00",
+    "fecha_fin": "2025-09-01 00:00:00",
+    "ultimo_valor": 87.35,
+    "valores_faltantes": 0
+  },
+  "DEXUSEU": {
+    "nombre": "Tipo Cambio Spot USD/EUR",
+    "unidad": "Dólares por Euro",
+    "frecuencia": "Diaria",
+    "impacto": "ALTO - Relación dólar-euro más importante",
+    "observaciones": 6740,
+    "fecha_inicio": "2000-01-03 00:00:00",
+    "fecha_fin": "2025-10-31 00:00:00",
+    "ultimo_valor": 1.1541,
+    "valores_faltantes": 262
+  },
+  "RTWEXBGS": {
+    "nombre": "Índice Real Amplio del Dólar USA",
+    "unidad": "Índice",
+    "frecuencia": "Diaria",
+    "impacto": "ALTO - Fortaleza del dólar vs canasta de monedas",
+    "observaciones": 238,
+    "fecha_inicio": "2006-01-01 00:00:00",
+    "fecha_fin": "2025-10-01 00:00:00",
+    "ultimo_valor": 115.6664,
+    "valores_faltantes": 0
+  }
+}

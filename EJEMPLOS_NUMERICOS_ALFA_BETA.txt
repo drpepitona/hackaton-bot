@@ -1,0 +1,531 @@
+═══════════════════════════════════════════════════════════════════════
+EJEMPLOS NUMERICOS DETALLADOS - α Y β
+═══════════════════════════════════════════════════════════════════════
+
+FORMULA:
+  P_contextual = P_base × (1 + α × (VIX/20 - 1)^β)
+
+═══════════════════════════════════════════════════════════════════════
+EJEMPLO 1: TERRORISM (α=0.28, β=1.70)
+═══════════════════════════════════════════════════════════════════════
+
+Token: 7.4 → P_base = 74%
+
+───────────────────────────────────────────────────────────────────────
+CASO A: VIX = 15 (Mercado CALMADO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: Normalizar VIX
+  V_miedo = 15 / 20 = 0.75
+
+Paso 2: Calcular diferencia
+  (V_miedo - 1) = 0.75 - 1 = -0.25
+
+Paso 3: Aplicar exponente β
+  (-0.25)^1.70 = -0.074
+  
+Paso 4: Multiplicar por α
+  0.28 × (-0.074) = -0.021
+
+Paso 5: Sumar 1
+  1 + (-0.021) = 0.979
+
+Paso 6: Multiplicar por P_base
+  74% × 0.979 = 72.4%
+
+RESULTADO: 74% → 72% (-3%)
+Interpretacion: En calma, reduce levemente
+
+───────────────────────────────────────────────────────────────────────
+CASO B: VIX = 30 (Mercado NERVIOSO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: Normalizar VIX
+  V_miedo = 30 / 20 = 1.50
+
+Paso 2: Calcular diferencia
+  (V_miedo - 1) = 1.50 - 1 = 0.50
+
+Paso 3: Aplicar exponente β
+  (0.50)^1.70 = 0.309
+  
+Paso 4: Multiplicar por α
+  0.28 × 0.309 = 0.087
+
+Paso 5: Sumar 1
+  1 + 0.087 = 1.087
+
+Paso 6: Multiplicar por P_base
+  74% × 1.087 = 80.4%
+
+RESULTADO: 74% → 80% (+9%)
+Interpretacion: En nerviosismo, amplifica moderado
+
+───────────────────────────────────────────────────────────────────────
+CASO C: VIX = 40 (Mercado EN PANICO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: Normalizar VIX
+  V_miedo = 40 / 20 = 2.00
+
+Paso 2: Calcular diferencia
+  (V_miedo - 1) = 2.00 - 1 = 1.00
+
+Paso 3: Aplicar exponente β
+  (1.00)^1.70 = 1.00
+  
+Paso 4: Multiplicar por α
+  0.28 × 1.00 = 0.28
+
+Paso 5: Sumar 1
+  1 + 0.28 = 1.28
+
+Paso 6: Multiplicar por P_base
+  74% × 1.28 = 94.7%
+
+RESULTADO: 74% → 95% (+28%)
+Interpretacion: ¡EFECTO POLVORIN! (β alto)
+
+═══════════════════════════════════════════════════════════════════════
+EJEMPLO 2: US HOUSING (α=0.17, β=0.87)
+═══════════════════════════════════════════════════════════════════════
+
+Token: 5.5 → P_base = 55%
+
+───────────────────────────────────────────────────────────────────────
+CASO A: VIX = 15 (Mercado CALMADO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: V_miedo = 15/20 = 0.75
+Paso 2: (V_miedo - 1) = 0.75 - 1 = -0.25
+Paso 3: (-0.25)^0.87 = -0.287
+Paso 4: 0.17 × (-0.287) = -0.049
+Paso 5: 1 + (-0.049) = 0.951
+Paso 6: 55% × 0.951 = 52.3%
+
+RESULTADO: 55% → 52% (-5%)
+
+───────────────────────────────────────────────────────────────────────
+CASO C: VIX = 40 (Mercado EN PANICO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: V_miedo = 40/20 = 2.00
+Paso 2: (V_miedo - 1) = 2.00 - 1 = 1.00
+Paso 3: (1.00)^0.87 = 1.00
+Paso 4: 0.17 × 1.00 = 0.17
+Paso 5: 1 + 0.17 = 1.17
+Paso 6: 55% × 1.17 = 64.4%
+
+RESULTADO: 55% → 64% (+17%)
+Interpretacion: Amplifica, pero MODERADO (α y β bajos)
+
+═══════════════════════════════════════════════════════════════════════
+EJEMPLO 3: FED RATES (α=0.21, β=1.18)
+═══════════════════════════════════════════════════════════════════════
+
+Token: 5.8 → P_base = 58%
+
+───────────────────────────────────────────────────────────────────────
+CASO C: VIX = 40 (Mercado EN PANICO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: V_miedo = 40/20 = 2.00
+Paso 2: (V_miedo - 1) = 2.00 - 1 = 1.00
+Paso 3: (1.00)^1.18 = 1.00
+Paso 4: 0.21 × 1.00 = 0.21
+Paso 5: 1 + 0.21 = 1.21
+Paso 6: 58% × 1.21 = 70.2%
+
+RESULTADO: 58% → 70% (+21%)
+Interpretacion: Amplifica significativamente (β>1)
+
+═══════════════════════════════════════════════════════════════════════
+COMPARACION: EFECTO DE β (con α=0.25 fijo, VIX=40)
+═══════════════════════════════════════════════════════════════════════
+
+P_base = 70%
+V_miedo = 2.0
+(V_miedo - 1) = 1.0
+
+───────────────────────────────────────────────────────────────────────
+β = 0.8 (SUBLINEAL):
+  (1.0)^0.8 = 1.00
+  Factor = 0.25 × 1.00 = 0.25
+  P_final = 70% × 1.25 = 87.5%
+  Cambio: +25%
+
+───────────────────────────────────────────────────────────────────────
+β = 1.0 (LINEAL):
+  (1.0)^1.0 = 1.00
+  Factor = 0.25 × 1.00 = 0.25
+  P_final = 70% × 1.25 = 87.5%
+  Cambio: +25%
+
+───────────────────────────────────────────────────────────────────────
+β = 1.5 (SUPERLINEAL - POLVORIN):
+  (1.0)^1.5 = 1.00
+  Factor = 0.25 × 1.00 = 0.25
+  P_final = 70% × 1.25 = 87.5%
+  Cambio: +25%
+
+NOTA: Con V_norm = 2.0 exacto, todos dan igual
+      La diferencia se ve con V_norm != 2.0
+
+═══════════════════════════════════════════════════════════════════════
+MEJOR EJEMPLO: EFECTO DE β (VIX=30 en lugar de 40)
+═══════════════════════════════════════════════════════════════════════
+
+P_base = 70%
+V_miedo = 30/20 = 1.5
+(V_miedo - 1) = 0.5
+α = 0.25 fijo
+
+───────────────────────────────────────────────────────────────────────
+β = 0.8 (SUBLINEAL):
+  (0.5)^0.8 = 0.574
+  Factor = 0.25 × 0.574 = 0.144
+  P_final = 70% × 1.144 = 80.0%
+  Cambio: +14%
+
+───────────────────────────────────────────────────────────────────────
+β = 1.0 (LINEAL):
+  (0.5)^1.0 = 0.500
+  Factor = 0.25 × 0.500 = 0.125
+  P_final = 70% × 1.125 = 78.8%
+  Cambio: +13%
+
+───────────────────────────────────────────────────────────────────────
+β = 1.5 (SUPERLINEAL):
+  (0.5)^1.5 = 0.354
+  Factor = 0.25 × 0.354 = 0.089
+  P_final = 70% × 1.089 = 76.2%
+  Cambio: +9%
+
+───────────────────────────────────────────────────────────────────────
+β = 2.0 (MUY SUPERLINEAL):
+  (0.5)^2.0 = 0.250
+  Factor = 0.25 × 0.250 = 0.063
+  P_final = 70% × 1.063 = 74.4%
+  Cambio: +6%
+
+CONCLUSION:
+  β bajo  → Mayor amplificacion en VIX moderado
+  β alto  → Menor amplificacion en VIX moderado
+            PERO explota mas en VIX extremo!
+
+═══════════════════════════════════════════════════════════════════════
+TABLA COMPLETA: TERRORISM vs HOUSING
+═══════════════════════════════════════════════════════════════════════
+
+TERRORISM (α=0.28, β=1.70, P_base=74%):
+  
+  VIX 12:  72%  (-3%)   [reduce leve]
+  VIX 15:  72%  (-3%)   [reduce leve]
+  VIX 20:  74%  (0%)    [sin cambio]
+  VIX 25:  77%  (+4%)   [amplifica leve]
+  VIX 30:  80%  (+9%)   [amplifica]
+  VIX 35:  87%  (+17%)  [amplifica fuerte]
+  VIX 40:  95%  (+28%)  [¡POLVORIN!]
+  VIX 45:  100% (+35%)  [MAXIMO]
+
+HOUSING (α=0.17, β=0.87, P_base=55%):
+  
+  VIX 12:  50%  (-9%)   [reduce]
+  VIX 15:  52%  (-5%)   [reduce leve]
+  VIX 20:  55%  (0%)    [sin cambio]
+  VIX 25:  57%  (+4%)   [amplifica leve]
+  VIX 30:  60%  (+9%)   [amplifica leve]
+  VIX 35:  62%  (+13%)  [amplifica moderado]
+  VIX 40:  64%  (+17%)  [amplifica moderado]
+  VIX 45:  67%  (+21%)  [amplifica, pero controlado]
+
+DIFERENCIA CLAVE:
+  Terrorism salta de 74% a 95% (+28%)
+  Housing salta de 55% a 64% (+17%)
+  
+  → Terrorism es MAS SENSIBLE (α alto + β alto)
+  → Housing es ESTABLE (α bajo + β bajo)
+
+═══════════════════════════════════════════════════════════════════════
+RESUMEN PARA PITCH
+═══════════════════════════════════════════════════════════════════════
+
+"Con α=0.28 y β=1.70 (Terrorism):
+  VIX 40: 74% → 95% (+28% por efecto polvorin)
+
+Con α=0.17 y β=0.87 (Housing):
+  VIX 40: 55% → 64% (+17% estable)
+
+α controla CUANTO amplifica (28% vs 17%)
+β controla COMO amplifica (explosivo vs lineal)
+
+El modelo APRENDE que guerra explota mas que housing."
+
+═══════════════════════════════════════════════════════════════════════
+
+EJEMPLOS NUMERICOS DETALLADOS - α Y β
+═══════════════════════════════════════════════════════════════════════
+
+FORMULA:
+  P_contextual = P_base × (1 + α × (VIX/20 - 1)^β)
+
+═══════════════════════════════════════════════════════════════════════
+EJEMPLO 1: TERRORISM (α=0.28, β=1.70)
+═══════════════════════════════════════════════════════════════════════
+
+Token: 7.4 → P_base = 74%
+
+───────────────────────────────────────────────────────────────────────
+CASO A: VIX = 15 (Mercado CALMADO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: Normalizar VIX
+  V_miedo = 15 / 20 = 0.75
+
+Paso 2: Calcular diferencia
+  (V_miedo - 1) = 0.75 - 1 = -0.25
+
+Paso 3: Aplicar exponente β
+  (-0.25)^1.70 = -0.074
+  
+Paso 4: Multiplicar por α
+  0.28 × (-0.074) = -0.021
+
+Paso 5: Sumar 1
+  1 + (-0.021) = 0.979
+
+Paso 6: Multiplicar por P_base
+  74% × 0.979 = 72.4%
+
+RESULTADO: 74% → 72% (-3%)
+Interpretacion: En calma, reduce levemente
+
+───────────────────────────────────────────────────────────────────────
+CASO B: VIX = 30 (Mercado NERVIOSO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: Normalizar VIX
+  V_miedo = 30 / 20 = 1.50
+
+Paso 2: Calcular diferencia
+  (V_miedo - 1) = 1.50 - 1 = 0.50
+
+Paso 3: Aplicar exponente β
+  (0.50)^1.70 = 0.309
+  
+Paso 4: Multiplicar por α
+  0.28 × 0.309 = 0.087
+
+Paso 5: Sumar 1
+  1 + 0.087 = 1.087
+
+Paso 6: Multiplicar por P_base
+  74% × 1.087 = 80.4%
+
+RESULTADO: 74% → 80% (+9%)
+Interpretacion: En nerviosismo, amplifica moderado
+
+───────────────────────────────────────────────────────────────────────
+CASO C: VIX = 40 (Mercado EN PANICO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: Normalizar VIX
+  V_miedo = 40 / 20 = 2.00
+
+Paso 2: Calcular diferencia
+  (V_miedo - 1) = 2.00 - 1 = 1.00
+
+Paso 3: Aplicar exponente β
+  (1.00)^1.70 = 1.00
+  
+Paso 4: Multiplicar por α
+  0.28 × 1.00 = 0.28
+
+Paso 5: Sumar 1
+  1 + 0.28 = 1.28
+
+Paso 6: Multiplicar por P_base
+  74% × 1.28 = 94.7%
+
+RESULTADO: 74% → 95% (+28%)
+Interpretacion: ¡EFECTO POLVORIN! (β alto)
+
+═══════════════════════════════════════════════════════════════════════
+EJEMPLO 2: US HOUSING (α=0.17, β=0.87)
+═══════════════════════════════════════════════════════════════════════
+
+Token: 5.5 → P_base = 55%
+
+───────────────────────────────────────────────────────────────────────
+CASO A: VIX = 15 (Mercado CALMADO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: V_miedo = 15/20 = 0.75
+Paso 2: (V_miedo - 1) = 0.75 - 1 = -0.25
+Paso 3: (-0.25)^0.87 = -0.287
+Paso 4: 0.17 × (-0.287) = -0.049
+Paso 5: 1 + (-0.049) = 0.951
+Paso 6: 55% × 0.951 = 52.3%
+
+RESULTADO: 55% → 52% (-5%)
+
+───────────────────────────────────────────────────────────────────────
+CASO C: VIX = 40 (Mercado EN PANICO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: V_miedo = 40/20 = 2.00
+Paso 2: (V_miedo - 1) = 2.00 - 1 = 1.00
+Paso 3: (1.00)^0.87 = 1.00
+Paso 4: 0.17 × 1.00 = 0.17
+Paso 5: 1 + 0.17 = 1.17
+Paso 6: 55% × 1.17 = 64.4%
+
+RESULTADO: 55% → 64% (+17%)
+Interpretacion: Amplifica, pero MODERADO (α y β bajos)
+
+═══════════════════════════════════════════════════════════════════════
+EJEMPLO 3: FED RATES (α=0.21, β=1.18)
+═══════════════════════════════════════════════════════════════════════
+
+Token: 5.8 → P_base = 58%
+
+───────────────────────────────────────────────────────────────────────
+CASO C: VIX = 40 (Mercado EN PANICO)
+───────────────────────────────────────────────────────────────────────
+
+Paso 1: V_miedo = 40/20 = 2.00
+Paso 2: (V_miedo - 1) = 2.00 - 1 = 1.00
+Paso 3: (1.00)^1.18 = 1.00
+Paso 4: 0.21 × 1.00 = 0.21
+Paso 5: 1 + 0.21 = 1.21
+Paso 6: 58% × 1.21 = 70.2%
+
+RESULTADO: 58% → 70% (+21%)
+Interpretacion: Amplifica significativamente (β>1)
+
+═══════════════════════════════════════════════════════════════════════
+COMPARACION: EFECTO DE β (con α=0.25 fijo, VIX=40)
+═══════════════════════════════════════════════════════════════════════
+
+P_base = 70%
+V_miedo = 2.0
+(V_miedo - 1) = 1.0
+
+───────────────────────────────────────────────────────────────────────
+β = 0.8 (SUBLINEAL):
+  (1.0)^0.8 = 1.00
+  Factor = 0.25 × 1.00 = 0.25
+  P_final = 70% × 1.25 = 87.5%
+  Cambio: +25%
+
+───────────────────────────────────────────────────────────────────────
+β = 1.0 (LINEAL):
+  (1.0)^1.0 = 1.00
+  Factor = 0.25 × 1.00 = 0.25
+  P_final = 70% × 1.25 = 87.5%
+  Cambio: +25%
+
+───────────────────────────────────────────────────────────────────────
+β = 1.5 (SUPERLINEAL - POLVORIN):
+  (1.0)^1.5 = 1.00
+  Factor = 0.25 × 1.00 = 0.25
+  P_final = 70% × 1.25 = 87.5%
+  Cambio: +25%
+
+NOTA: Con V_norm = 2.0 exacto, todos dan igual
+      La diferencia se ve con V_norm != 2.0
+
+═══════════════════════════════════════════════════════════════════════
+MEJOR EJEMPLO: EFECTO DE β (VIX=30 en lugar de 40)
+═══════════════════════════════════════════════════════════════════════
+
+P_base = 70%
+V_miedo = 30/20 = 1.5
+(V_miedo - 1) = 0.5
+α = 0.25 fijo
+
+───────────────────────────────────────────────────────────────────────
+β = 0.8 (SUBLINEAL):
+  (0.5)^0.8 = 0.574
+  Factor = 0.25 × 0.574 = 0.144
+  P_final = 70% × 1.144 = 80.0%
+  Cambio: +14%
+
+───────────────────────────────────────────────────────────────────────
+β = 1.0 (LINEAL):
+  (0.5)^1.0 = 0.500
+  Factor = 0.25 × 0.500 = 0.125
+  P_final = 70% × 1.125 = 78.8%
+  Cambio: +13%
+
+───────────────────────────────────────────────────────────────────────
+β = 1.5 (SUPERLINEAL):
+  (0.5)^1.5 = 0.354
+  Factor = 0.25 × 0.354 = 0.089
+  P_final = 70% × 1.089 = 76.2%
+  Cambio: +9%
+
+───────────────────────────────────────────────────────────────────────
+β = 2.0 (MUY SUPERLINEAL):
+  (0.5)^2.0 = 0.250
+  Factor = 0.25 × 0.250 = 0.063
+  P_final = 70% × 1.063 = 74.4%
+  Cambio: +6%
+
+CONCLUSION:
+  β bajo  → Mayor amplificacion en VIX moderado
+  β alto  → Menor amplificacion en VIX moderado
+            PERO explota mas en VIX extremo!
+
+═══════════════════════════════════════════════════════════════════════
+TABLA COMPLETA: TERRORISM vs HOUSING
+═══════════════════════════════════════════════════════════════════════
+
+TERRORISM (α=0.28, β=1.70, P_base=74%):
+  
+  VIX 12:  72%  (-3%)   [reduce leve]
+  VIX 15:  72%  (-3%)   [reduce leve]
+  VIX 20:  74%  (0%)    [sin cambio]
+  VIX 25:  77%  (+4%)   [amplifica leve]
+  VIX 30:  80%  (+9%)   [amplifica]
+  VIX 35:  87%  (+17%)  [amplifica fuerte]
+  VIX 40:  95%  (+28%)  [¡POLVORIN!]
+  VIX 45:  100% (+35%)  [MAXIMO]
+
+HOUSING (α=0.17, β=0.87, P_base=55%):
+  
+  VIX 12:  50%  (-9%)   [reduce]
+  VIX 15:  52%  (-5%)   [reduce leve]
+  VIX 20:  55%  (0%)    [sin cambio]
+  VIX 25:  57%  (+4%)   [amplifica leve]
+  VIX 30:  60%  (+9%)   [amplifica leve]
+  VIX 35:  62%  (+13%)  [amplifica moderado]
+  VIX 40:  64%  (+17%)  [amplifica moderado]
+  VIX 45:  67%  (+21%)  [amplifica, pero controlado]
+
+DIFERENCIA CLAVE:
+  Terrorism salta de 74% a 95% (+28%)
+  Housing salta de 55% a 64% (+17%)
+  
+  → Terrorism es MAS SENSIBLE (α alto + β alto)
+  → Housing es ESTABLE (α bajo + β bajo)
+
+═══════════════════════════════════════════════════════════════════════
+RESUMEN PARA PITCH
+═══════════════════════════════════════════════════════════════════════
+
+"Con α=0.28 y β=1.70 (Terrorism):
+  VIX 40: 74% → 95% (+28% por efecto polvorin)
+
+Con α=0.17 y β=0.87 (Housing):
+  VIX 40: 55% → 64% (+17% estable)
+
+α controla CUANTO amplifica (28% vs 17%)
+β controla COMO amplifica (explosivo vs lineal)
+
+El modelo APRENDE que guerra explota mas que housing."
+
+═══════════════════════════════════════════════════════════════════════
+
+
+

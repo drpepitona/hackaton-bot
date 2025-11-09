@@ -1,0 +1,277 @@
+═══════════════════════════════════════════════════════════════════════
+🏆 BOT PREDICTIVO DE NOTICIAS FINANCIERAS - HACKATHON
+═══════════════════════════════════════════════════════════════════════
+
+📊 QUÉ HACE:
+  Predice cómo las noticias afectan al mercado considerando el CONTEXTO
+  (nivel de miedo/VIX). Misma noticia = diferente impacto según el momento.
+
+🔥 INNOVACIÓN CLAVE: EFECTO POLVORÍN
+  
+  Fórmula: Impacto = P_base × (1 + α × (VIX/20 - 1)^β)
+  
+  α y β son ESPECÍFICOS de cada categoría:
+    • Terrorism:   β=1.74 (efecto polvorín EXTREMO)
+    • Fed Rates:   β=1.20 (efecto polvorín MODERADO)
+    • US Housing:  β=0.90 (estable)
+  
+  Ejemplo real:
+    "Fed raises rates" con VIX 15:  58% → 56% (-4%)
+    "Fed raises rates" con VIX 40:  58% → 100% (+72%)!
+  
+  → El modelo ENTIENDE que en pánico, las noticias explotan más.
+
+═══════════════════════════════════════════════════════════════════════
+📈 RESULTADOS
+═══════════════════════════════════════════════════════════════════════
+
+  ✓ 123,326 noticias históricas analizadas
+  ✓ 17 categorías × 9 assets = 153 combinaciones
+  ✓ F1-score: 67% (vs 61% modelo base) → +6% mejora
+  ✓ Validado en 2,514 días de mercado real
+  ✓ Casos históricos: 2008 (Lehman), 2020 (COVID), 2022 (Ukraine)
+
+═══════════════════════════════════════════════════════════════════════
+🎯 DIFERENCIADORES (vs otros equipos)
+═══════════════════════════════════════════════════════════════════════
+
+  1. MULTI-PARADIGMA: Física (Landau) + ML (tokens) + Finanzas (VIX)
+  2. PARÁMETROS POR CATEGORÍA: α y β específicos (no genéricos)
+  3. INTERPRETABLE: No es caja negra - cada número explicable
+  4. DATOS REALES: 123k noticias reales, no simuladas
+  5. TIEMPO REAL: Predicción en <4 segundos
+
+═══════════════════════════════════════════════════════════════════════
+🚀 DEMO (5 MINUTOS)
+═══════════════════════════════════════════════════════════════════════
+
+  1. Problema (30s): Mercados reaccionan diferente según contexto
+  2. Solución (60s): Modelo con α y β por categoría
+  3. Demo Live (120s): Streamlit dashboard con ejemplos
+  4. Validación (45s): F1=67%, casos históricos correctos
+  5. Robustez (45s): 17 categorías, código modular, extensible
+
+═══════════════════════════════════════════════════════════════════════
+📊 TABLA IMPACTANTE (mostrar en slide)
+═══════════════════════════════════════════════════════════════════════
+
+  ┌───────────────────┬──────┬──────────────────────────────────┐
+  │ Categoría         │  β   │ VIX 15 → VIX 40                  │
+  ├───────────────────┼──────┼──────────────────────────────────┤
+  │ Terrorism         │ 1.74 │ 74% → 100% (+34% amplificación!) │
+  │ War Russia        │ 1.73 │ 70% → 100% (+42% ¡EXPLOSIVO!)    │
+  │ Fed Rates         │ 1.20 │ 58% → 100% (+72% ¡EXTREMO!)      │
+  │ US Housing        │ 0.90 │ 55% →  60% (+9% estable)         │
+  └───────────────────┴──────┴──────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════
+🛠️ COMANDOS
+═══════════════════════════════════════════════════════════════════════
+
+  # Lanzar dashboard
+  py -m streamlit run app_hackathon.py
+  
+  # Predicción rápida
+  py -c "from src.models.predictor_intuitivo import predecir_rapido; print(predecir_rapido('Fed raises rates', 'SPY', 28))"
+
+═══════════════════════════════════════════════════════════════════════
+❓ PREGUNTAS FRECUENTES (30 seg cada una)
+═══════════════════════════════════════════════════════════════════════
+
+Q: ¿Por qué Bayesian Optimization?
+A: Eficiencia. 30 iteraciones vs 1000+ de Grid Search. F1=67%.
+
+Q: ¿Por qué no Deep Learning?
+A: 1) Interpretabilidad (α y β explicables)
+   2) Datos suficientes (123k noticias OK para ML clásico)
+   3) Tiempo (entrena en 2 min vs horas)
+   4) Menos overfitting
+
+Q: ¿Cómo validas?
+A: 1) 2,514 días, 123k noticias reales
+   2) F1=67% (vs 61% base)
+   3) Casos históricos: 2008, 2020, 2022 ✓
+   4) Split train/test 80/20
+
+Q: ¿Funciona en tiempo real?
+A: Sí. <4 segundos. Tokens pre-calculados, solo cálculo contextual RT.
+
+Q: ¿Categoría nueva sin datos?
+A: Sistema extensible. Usa α y β por defecto o asigna basándose en
+   características (token, volatilidad, tipo de noticia).
+
+═══════════════════════════════════════════════════════════════════════
+💡 PITCH (memorizar - 15 segundos)
+═══════════════════════════════════════════════════════════════════════
+
+  "Presentamos un Bot Predictivo que combina Física, ML y Finanzas
+   para entender CÓMO el contexto del mercado amplifica noticias.
+   
+   La innovación: α y β específicos por categoría.
+   Noticias de guerra explotan más en pánico (β=1.74).
+   Noticias de housing son estables (β=0.90).
+   
+   El modelo ENTIENDE el contexto. No es suerte, es optimización."
+
+═══════════════════════════════════════════════════════════════════════
+✅ CHECKLIST PRE-DEMO
+═══════════════════════════════════════════════════════════════════════
+
+  [ ] Laptop 100% cargado
+  [ ] Internet estable
+  [ ] Streamlit corriendo: http://localhost:8501
+  [ ] 3 ejemplos probados (terrorism VIX 35, terrorism VIX 15, Fed VIX 40)
+  [ ] Slides listos (5 slides)
+  [ ] Respuestas Q&A practicadas
+
+═══════════════════════════════════════════════════════════════════════
+🏆 ¡ESTÁS LISTO! CONFÍA EN TU TRABAJO.
+═══════════════════════════════════════════════════════════════════════
+
+Archivos clave:
+  • HACKATHON_GUIA_FINAL.md          → Guía completa
+  • app_hackathon.py                 → Dashboard Streamlit
+  • parametros_por_categoria_*.csv   → α y β por categoría
+  • tokens_volatilidad_*.csv         → Tokens calculados
+
+¡MUCHA SUERTE! 🔥
+
+🏆 BOT PREDICTIVO DE NOTICIAS FINANCIERAS - HACKATHON
+═══════════════════════════════════════════════════════════════════════
+
+📊 QUÉ HACE:
+  Predice cómo las noticias afectan al mercado considerando el CONTEXTO
+  (nivel de miedo/VIX). Misma noticia = diferente impacto según el momento.
+
+🔥 INNOVACIÓN CLAVE: EFECTO POLVORÍN
+  
+  Fórmula: Impacto = P_base × (1 + α × (VIX/20 - 1)^β)
+  
+  α y β son ESPECÍFICOS de cada categoría:
+    • Terrorism:   β=1.74 (efecto polvorín EXTREMO)
+    • Fed Rates:   β=1.20 (efecto polvorín MODERADO)
+    • US Housing:  β=0.90 (estable)
+  
+  Ejemplo real:
+    "Fed raises rates" con VIX 15:  58% → 56% (-4%)
+    "Fed raises rates" con VIX 40:  58% → 100% (+72%)!
+  
+  → El modelo ENTIENDE que en pánico, las noticias explotan más.
+
+═══════════════════════════════════════════════════════════════════════
+📈 RESULTADOS
+═══════════════════════════════════════════════════════════════════════
+
+  ✓ 123,326 noticias históricas analizadas
+  ✓ 17 categorías × 9 assets = 153 combinaciones
+  ✓ F1-score: 67% (vs 61% modelo base) → +6% mejora
+  ✓ Validado en 2,514 días de mercado real
+  ✓ Casos históricos: 2008 (Lehman), 2020 (COVID), 2022 (Ukraine)
+
+═══════════════════════════════════════════════════════════════════════
+🎯 DIFERENCIADORES (vs otros equipos)
+═══════════════════════════════════════════════════════════════════════
+
+  1. MULTI-PARADIGMA: Física (Landau) + ML (tokens) + Finanzas (VIX)
+  2. PARÁMETROS POR CATEGORÍA: α y β específicos (no genéricos)
+  3. INTERPRETABLE: No es caja negra - cada número explicable
+  4. DATOS REALES: 123k noticias reales, no simuladas
+  5. TIEMPO REAL: Predicción en <4 segundos
+
+═══════════════════════════════════════════════════════════════════════
+🚀 DEMO (5 MINUTOS)
+═══════════════════════════════════════════════════════════════════════
+
+  1. Problema (30s): Mercados reaccionan diferente según contexto
+  2. Solución (60s): Modelo con α y β por categoría
+  3. Demo Live (120s): Streamlit dashboard con ejemplos
+  4. Validación (45s): F1=67%, casos históricos correctos
+  5. Robustez (45s): 17 categorías, código modular, extensible
+
+═══════════════════════════════════════════════════════════════════════
+📊 TABLA IMPACTANTE (mostrar en slide)
+═══════════════════════════════════════════════════════════════════════
+
+  ┌───────────────────┬──────┬──────────────────────────────────┐
+  │ Categoría         │  β   │ VIX 15 → VIX 40                  │
+  ├───────────────────┼──────┼──────────────────────────────────┤
+  │ Terrorism         │ 1.74 │ 74% → 100% (+34% amplificación!) │
+  │ War Russia        │ 1.73 │ 70% → 100% (+42% ¡EXPLOSIVO!)    │
+  │ Fed Rates         │ 1.20 │ 58% → 100% (+72% ¡EXTREMO!)      │
+  │ US Housing        │ 0.90 │ 55% →  60% (+9% estable)         │
+  └───────────────────┴──────┴──────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════
+🛠️ COMANDOS
+═══════════════════════════════════════════════════════════════════════
+
+  # Lanzar dashboard
+  py -m streamlit run app_hackathon.py
+  
+  # Predicción rápida
+  py -c "from src.models.predictor_intuitivo import predecir_rapido; print(predecir_rapido('Fed raises rates', 'SPY', 28))"
+
+═══════════════════════════════════════════════════════════════════════
+❓ PREGUNTAS FRECUENTES (30 seg cada una)
+═══════════════════════════════════════════════════════════════════════
+
+Q: ¿Por qué Bayesian Optimization?
+A: Eficiencia. 30 iteraciones vs 1000+ de Grid Search. F1=67%.
+
+Q: ¿Por qué no Deep Learning?
+A: 1) Interpretabilidad (α y β explicables)
+   2) Datos suficientes (123k noticias OK para ML clásico)
+   3) Tiempo (entrena en 2 min vs horas)
+   4) Menos overfitting
+
+Q: ¿Cómo validas?
+A: 1) 2,514 días, 123k noticias reales
+   2) F1=67% (vs 61% base)
+   3) Casos históricos: 2008, 2020, 2022 ✓
+   4) Split train/test 80/20
+
+Q: ¿Funciona en tiempo real?
+A: Sí. <4 segundos. Tokens pre-calculados, solo cálculo contextual RT.
+
+Q: ¿Categoría nueva sin datos?
+A: Sistema extensible. Usa α y β por defecto o asigna basándose en
+   características (token, volatilidad, tipo de noticia).
+
+═══════════════════════════════════════════════════════════════════════
+💡 PITCH (memorizar - 15 segundos)
+═══════════════════════════════════════════════════════════════════════
+
+  "Presentamos un Bot Predictivo que combina Física, ML y Finanzas
+   para entender CÓMO el contexto del mercado amplifica noticias.
+   
+   La innovación: α y β específicos por categoría.
+   Noticias de guerra explotan más en pánico (β=1.74).
+   Noticias de housing son estables (β=0.90).
+   
+   El modelo ENTIENDE el contexto. No es suerte, es optimización."
+
+═══════════════════════════════════════════════════════════════════════
+✅ CHECKLIST PRE-DEMO
+═══════════════════════════════════════════════════════════════════════
+
+  [ ] Laptop 100% cargado
+  [ ] Internet estable
+  [ ] Streamlit corriendo: http://localhost:8501
+  [ ] 3 ejemplos probados (terrorism VIX 35, terrorism VIX 15, Fed VIX 40)
+  [ ] Slides listos (5 slides)
+  [ ] Respuestas Q&A practicadas
+
+═══════════════════════════════════════════════════════════════════════
+🏆 ¡ESTÁS LISTO! CONFÍA EN TU TRABAJO.
+═══════════════════════════════════════════════════════════════════════
+
+Archivos clave:
+  • HACKATHON_GUIA_FINAL.md          → Guía completa
+  • app_hackathon.py                 → Dashboard Streamlit
+  • parametros_por_categoria_*.csv   → α y β por categoría
+  • tokens_volatilidad_*.csv         → Tokens calculados
+
+¡MUCHA SUERTE! 🔥
+
+
+

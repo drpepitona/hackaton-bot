@@ -1,0 +1,335 @@
+═══════════════════════════════════════════════════════════════════════
+¿QUE SON α (ALPHA) Y β (BETA)? - RESUMEN RAPIDO
+═══════════════════════════════════════════════════════════════════════
+
+LA FORMULA:
+  
+  P_contextual = P_base × (1 + α × (VIX/20 - 1)^β)
+  
+  P_base:     Probabilidad del token (ej: 74%)
+  VIX/20:     Miedo del mercado normalizado
+  α (alpha):  ¿CUANTO amplifica?
+  β (beta):   ¿COMO amplifica? (lineal/explosivo)
+
+═══════════════════════════════════════════════════════════════════════
+α (ALPHA) - EL AMPLIFICADOR
+═══════════════════════════════════════════════════════════════════════
+
+QUE ES:
+  Multiplicador de sensibilidad al VIX
+  
+PARA QUE SIRVE:
+  Controla CUANTO cambia la probabilidad
+  
+RANGO:
+  0.15 - 0.30 (conservador)
+  
+INTERPRETACION:
+  α = 0.17  →  POCO sensible (Housing, Trade)
+  α = 0.25  →  MUY sensible (Crisis, War)
+  
+EJEMPLO:
+  Terrorism: α=0.28
+  VIX 40: Amplifica 28% × factor → +20-30% probabilidad
+
+═══════════════════════════════════════════════════════════════════════
+β (BETA) - EL EXPONENTE POLVORIN
+═══════════════════════════════════════════════════════════════════════
+
+QUE ES:
+  Exponente que define crecimiento (lineal vs explosivo)
+  
+PARA QUE SIRVE:
+  Controla COMO crece el efecto (forma de la curva)
+  
+RANGO:
+  0.8 - 1.7 (sublineal a superlineal)
+  
+INTERPRETACION:
+  β < 1.0   →  Crece DESPACIO (Housing, Elections)
+  β = 1.0   →  Crece LINEAL
+  β > 1.5   →  Crece EXPLOSIVO - POLVORIN! (War, Terror)
+  
+EJEMPLO:
+  Terrorism: β=1.70
+  VIX 40: (1.0)^1.70 = 1.0 → Efecto MAXIMO (no se atenua)
+
+═══════════════════════════════════════════════════════════════════════
+COMPARACION VISUAL
+═══════════════════════════════════════════════════════════════════════
+
+HOUSING (α=0.17, β=0.87) - ESTABLE:
+  VIX 15:  55% → 55%  (0%)    | Casi no cambia
+  VIX 40:  55% → 64%  (+16%)  | Amplifica poco
+  
+TERRORISM (α=0.28, β=1.70) - EXPLOSIVO:
+  VIX 15:  74% → 72%  (-3%)   | Reduce leve
+  VIX 40:  74% → 95%  (+28%)  | ¡POLVORIN!
+  
+FED RATES (α=0.21, β=1.18) - MODERADO:
+  VIX 15:  58% → 57%  (-2%)   | Estable
+  VIX 40:  58% → 70%  (+21%)  | Amplifica moderado
+
+═══════════════════════════════════════════════════════════════════════
+ANALOGIA FISICA (para explicar a jueces)
+═══════════════════════════════════════════════════════════════════════
+
+VIX       = Temperatura del ambiente
+α (alpha) = Cantidad de combustible
+β (beta)  = Tipo de combustible
+
+HOUSING (α bajo, β bajo):
+  Madera humeda, poca cantidad
+  VIX 40: Arde despacio, controlable
+  
+TERRORISM (α alto, β alto):
+  Gasolina, mucha cantidad
+  VIX 40: ¡EXPLOSION! (efecto polvorin)
+
+═══════════════════════════════════════════════════════════════════════
+CALCULO (como los obtenemos)
+═══════════════════════════════════════════════════════════════════════
+
+METODO 1 - BAYESIAN OPTIMIZATION (ideal):
+  Con datos historicos alineados
+  Optimiza α y β para maximizar F1-score
+  30-50 iteraciones → convergencia
+  
+METODO 2 - ASIGNACION INTELIGENTE (nuestro caso):
+  Basado en caracteristicas del token:
+  
+  α = 0.15 + (volatilidad × 5) × multiplicador
+  
+  Multiplicador por tipo:
+    Guerra/Terror: ×1.5 (muy sensible)
+    Crisis:        ×1.3
+    Fed/ECB:       ×1.2
+    Otros:         ×1.0 (normal)
+  
+  β = 0.8 + (volatilidad × 15) + bonus
+  
+  Bonus por tipo:
+    Guerra/Terror: +0.8 (efecto polvorin)
+    Crisis:        +0.6
+    Fed/ECB:       +0.3
+    Otros:         +0.0
+
+═══════════════════════════════════════════════════════════════════════
+VALORES FINALES (17 categorias)
+═══════════════════════════════════════════════════════════════════════
+
+α PROMEDIO:  0.21  (rango: 0.17 - 0.28)
+β PROMEDIO:  1.17  (rango: 0.87 - 1.70)
+
+TOP α (mas sensibles):
+  1. Terrorism:   α=0.28, β=1.70  → MUY sensible + polvorin
+  2. War:         α=0.27, β=1.70  → MUY sensible + polvorin
+  3. Crisis:      α=0.25, β=1.52  → Alta sensibilidad
+
+TOP β (mas explosivos):
+  1. Terrorism:   α=0.28, β=1.70  → Efecto polvorin EXTREMO
+  2. War:         α=0.27, β=1.70  → Efecto polvorin EXTREMO
+  3. Crisis:      α=0.25, β=1.52  → Efecto polvorin ALTO
+
+BAJOS (estables):
+  • Housing:      α=0.17, β=0.87  → Poco sensible, sin polvorin
+  • Elections:    α=0.18, β=0.89  → Estable
+  • Trade:        α=0.18, β=0.89  → Estable
+
+═══════════════════════════════════════════════════════════════════════
+VENTAJAS PARA HACKATHON
+═══════════════════════════════════════════════════════════════════════
+
+✓ INTERPRETABLE: Cada numero tiene significado claro
+✓ BASADO EN FISICA: Landau Phase Transitions (no inventado)
+✓ CAPTURA REALIDAD: Misma noticia, diferente contexto
+✓ CONSERVADOR: α pequeño (0.15-0.30) evita explosiones irreales
+✓ DIFERENCIADO: α y β especificos por categoria
+✓ ROBUSTO: Funciona con y sin datos historicos
+
+═══════════════════════════════════════════════════════════════════════
+PITCH (30 segundos)
+═══════════════════════════════════════════════════════════════════════
+
+"α y β capturan COMO el contexto amplifica noticias.
+
+α controla CUANTO (escala: 15-30%)
+β controla COMO (lineal vs explosivo)
+
+Ejemplo:
+  Terrorism en VIX 40: 74% → 95% (+28% polvorin)
+  Housing en VIX 40:   55% → 64% (+16% estable)
+
+El modelo ENTIENDE que guerra explota mas que housing.
+No es magia - es fisica + datos."
+
+═══════════════════════════════════════════════════════════════════════
+
+¿QUE SON α (ALPHA) Y β (BETA)? - RESUMEN RAPIDO
+═══════════════════════════════════════════════════════════════════════
+
+LA FORMULA:
+  
+  P_contextual = P_base × (1 + α × (VIX/20 - 1)^β)
+  
+  P_base:     Probabilidad del token (ej: 74%)
+  VIX/20:     Miedo del mercado normalizado
+  α (alpha):  ¿CUANTO amplifica?
+  β (beta):   ¿COMO amplifica? (lineal/explosivo)
+
+═══════════════════════════════════════════════════════════════════════
+α (ALPHA) - EL AMPLIFICADOR
+═══════════════════════════════════════════════════════════════════════
+
+QUE ES:
+  Multiplicador de sensibilidad al VIX
+  
+PARA QUE SIRVE:
+  Controla CUANTO cambia la probabilidad
+  
+RANGO:
+  0.15 - 0.30 (conservador)
+  
+INTERPRETACION:
+  α = 0.17  →  POCO sensible (Housing, Trade)
+  α = 0.25  →  MUY sensible (Crisis, War)
+  
+EJEMPLO:
+  Terrorism: α=0.28
+  VIX 40: Amplifica 28% × factor → +20-30% probabilidad
+
+═══════════════════════════════════════════════════════════════════════
+β (BETA) - EL EXPONENTE POLVORIN
+═══════════════════════════════════════════════════════════════════════
+
+QUE ES:
+  Exponente que define crecimiento (lineal vs explosivo)
+  
+PARA QUE SIRVE:
+  Controla COMO crece el efecto (forma de la curva)
+  
+RANGO:
+  0.8 - 1.7 (sublineal a superlineal)
+  
+INTERPRETACION:
+  β < 1.0   →  Crece DESPACIO (Housing, Elections)
+  β = 1.0   →  Crece LINEAL
+  β > 1.5   →  Crece EXPLOSIVO - POLVORIN! (War, Terror)
+  
+EJEMPLO:
+  Terrorism: β=1.70
+  VIX 40: (1.0)^1.70 = 1.0 → Efecto MAXIMO (no se atenua)
+
+═══════════════════════════════════════════════════════════════════════
+COMPARACION VISUAL
+═══════════════════════════════════════════════════════════════════════
+
+HOUSING (α=0.17, β=0.87) - ESTABLE:
+  VIX 15:  55% → 55%  (0%)    | Casi no cambia
+  VIX 40:  55% → 64%  (+16%)  | Amplifica poco
+  
+TERRORISM (α=0.28, β=1.70) - EXPLOSIVO:
+  VIX 15:  74% → 72%  (-3%)   | Reduce leve
+  VIX 40:  74% → 95%  (+28%)  | ¡POLVORIN!
+  
+FED RATES (α=0.21, β=1.18) - MODERADO:
+  VIX 15:  58% → 57%  (-2%)   | Estable
+  VIX 40:  58% → 70%  (+21%)  | Amplifica moderado
+
+═══════════════════════════════════════════════════════════════════════
+ANALOGIA FISICA (para explicar a jueces)
+═══════════════════════════════════════════════════════════════════════
+
+VIX       = Temperatura del ambiente
+α (alpha) = Cantidad de combustible
+β (beta)  = Tipo de combustible
+
+HOUSING (α bajo, β bajo):
+  Madera humeda, poca cantidad
+  VIX 40: Arde despacio, controlable
+  
+TERRORISM (α alto, β alto):
+  Gasolina, mucha cantidad
+  VIX 40: ¡EXPLOSION! (efecto polvorin)
+
+═══════════════════════════════════════════════════════════════════════
+CALCULO (como los obtenemos)
+═══════════════════════════════════════════════════════════════════════
+
+METODO 1 - BAYESIAN OPTIMIZATION (ideal):
+  Con datos historicos alineados
+  Optimiza α y β para maximizar F1-score
+  30-50 iteraciones → convergencia
+  
+METODO 2 - ASIGNACION INTELIGENTE (nuestro caso):
+  Basado en caracteristicas del token:
+  
+  α = 0.15 + (volatilidad × 5) × multiplicador
+  
+  Multiplicador por tipo:
+    Guerra/Terror: ×1.5 (muy sensible)
+    Crisis:        ×1.3
+    Fed/ECB:       ×1.2
+    Otros:         ×1.0 (normal)
+  
+  β = 0.8 + (volatilidad × 15) + bonus
+  
+  Bonus por tipo:
+    Guerra/Terror: +0.8 (efecto polvorin)
+    Crisis:        +0.6
+    Fed/ECB:       +0.3
+    Otros:         +0.0
+
+═══════════════════════════════════════════════════════════════════════
+VALORES FINALES (17 categorias)
+═══════════════════════════════════════════════════════════════════════
+
+α PROMEDIO:  0.21  (rango: 0.17 - 0.28)
+β PROMEDIO:  1.17  (rango: 0.87 - 1.70)
+
+TOP α (mas sensibles):
+  1. Terrorism:   α=0.28, β=1.70  → MUY sensible + polvorin
+  2. War:         α=0.27, β=1.70  → MUY sensible + polvorin
+  3. Crisis:      α=0.25, β=1.52  → Alta sensibilidad
+
+TOP β (mas explosivos):
+  1. Terrorism:   α=0.28, β=1.70  → Efecto polvorin EXTREMO
+  2. War:         α=0.27, β=1.70  → Efecto polvorin EXTREMO
+  3. Crisis:      α=0.25, β=1.52  → Efecto polvorin ALTO
+
+BAJOS (estables):
+  • Housing:      α=0.17, β=0.87  → Poco sensible, sin polvorin
+  • Elections:    α=0.18, β=0.89  → Estable
+  • Trade:        α=0.18, β=0.89  → Estable
+
+═══════════════════════════════════════════════════════════════════════
+VENTAJAS PARA HACKATHON
+═══════════════════════════════════════════════════════════════════════
+
+✓ INTERPRETABLE: Cada numero tiene significado claro
+✓ BASADO EN FISICA: Landau Phase Transitions (no inventado)
+✓ CAPTURA REALIDAD: Misma noticia, diferente contexto
+✓ CONSERVADOR: α pequeño (0.15-0.30) evita explosiones irreales
+✓ DIFERENCIADO: α y β especificos por categoria
+✓ ROBUSTO: Funciona con y sin datos historicos
+
+═══════════════════════════════════════════════════════════════════════
+PITCH (30 segundos)
+═══════════════════════════════════════════════════════════════════════
+
+"α y β capturan COMO el contexto amplifica noticias.
+
+α controla CUANTO (escala: 15-30%)
+β controla COMO (lineal vs explosivo)
+
+Ejemplo:
+  Terrorism en VIX 40: 74% → 95% (+28% polvorin)
+  Housing en VIX 40:   55% → 64% (+16% estable)
+
+El modelo ENTIENDE que guerra explota mas que housing.
+No es magia - es fisica + datos."
+
+═══════════════════════════════════════════════════════════════════════
+
+
+

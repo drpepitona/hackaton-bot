@@ -1,0 +1,17 @@
+**ANÁLISIS CUANTITATIVO**
+
+Basado exclusivamente en los datos estadísticos proporcionados:
+
+*   **PROBABILIDAD DE IMPACTO: 100%**
+*   **DIRECCIÓN: NEUTRAL**
+*   **MAGNITUD ESPERADA: ±0.77%**
+
+**RAZONAMIENTO:**
+
+El análisis se deriva directamente de los parámetros del modelo. La probabilidad de impacto se calcula a partir del **TOKEN DE IMPACTO** base de 8.1/10 (81%), que es significativamente amplificado por el factor **Amplificador VIX** de x1.35 debido al estado de PÁNICO (VIX=35). El resultado (81% * 1.35 = 109.35%) se satura en 100%, indicando una certeza estadística de que ocurrirá un evento de alta volatilidad.
+
+Sin embargo, los datos de **Dirección histórica** (50% alcista vs. 50% bajista) no muestran un sesgo estadístico, resultando en una predicción direccional **NEUTRAL**. La magnitud esperada del movimiento se establece en **±0.77%**, correspondiente a la volatilidad promedio observada en los 384 eventos históricos análogos. Los parámetros de Landau (α=0.2449, β=1.5152) confirman que el sistema se encuentra en un punto crítico, propenso a una transición de fase.
+
+**RECOMENDACIÓN: ESPERAR**
+
+La certeza del impacto (100%) combinada con la incertidumbre direccional (50/50) crea un entorno de riesgo no direccional extremo. La estrategia cuantitativamente prudente es no tomar exposición y esperar a que los datos revelen un sesgo direccional claro.

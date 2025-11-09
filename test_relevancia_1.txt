@@ -1,0 +1,18 @@
+**ANÁLISIS CUANTITATIVO DE IMPACTO DE MERCADO**
+
+Basado exclusivamente en los datos estadísticos proporcionados:
+
+1.  **PROBABILIDAD DE IMPACTO: 85.1%**
+    El token base de 7.4/10 (74%) se ajusta por el contexto de mercado actual. Dado un VIX de 30 (NERVIOSO), se aplica el amplificador de x1.15, resultando en una probabilidad de impacto elevada (74% * 1.15).
+
+2.  **DIRECCIÓN: NEUTRAL**
+    El análisis de 2,063 eventos históricos similares no muestra un sesgo direccional. La distribución es 50% alcista y 50% bajista, lo que indica que la dirección del movimiento es estadísticamente impredecible.
+
+3.  **MAGNITUD ESPERADA: ±0.70%**
+    La volatilidad promedio observada para esta categoría de eventos es de 0.70%. Se espera que el mercado se mueva en este rango, en cualquier dirección, tras el impacto.
+
+4.  **RAZONAMIENTO**
+    El modelo predice una alta probabilidad de reacción del mercado debido a la sensibilidad histórica de este tipo de eventos, amplificada por el nerviosismo actual. Sin embargo, los datos históricos carecen de un patrón direccional claro, lo que sugiere una reacción de incertidumbre pura en lugar de una tendencia definida. Los parámetros de Landau (α=0.2773, β=1.7045) confirman que el sistema es sensible a una transición de fase ante este estímulo, pero la dirección de dicha transición es indeterminada.
+
+5.  **RECOMENDACIÓN: ESPERAR**
+    Dada la alta probabilidad de un evento pero con una dirección completamente incierta (50/50), la acción más prudente es esperar a que el mercado absorba el evento y defina una tendencia clara antes de tomar una posición.

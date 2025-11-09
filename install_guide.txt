@@ -1,0 +1,133 @@
+GUÍA DE INSTALACIÓN - BOT PREDICTIVO DE BOLSA CON IA
+====================================================
+
+PASO 1: Verificar Python
+-------------------------
+El proyecto requiere Python 3.9 o superior.
+
+Para verificar tu versión:
+    python --version
+
+Si no tienes Python instalado:
+    https://www.python.org/downloads/
+
+
+PASO 2: Crear Entorno Virtual (RECOMENDADO)
+-------------------------------------------
+Es altamente recomendado usar un entorno virtual para evitar
+conflictos con otras instalaciones de Python.
+
+En Windows PowerShell:
+    python -m venv venv
+    .\venv\Scripts\Activate.ps1
+
+Si tienes error de ejecución de scripts en PowerShell:
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+Alternativa con cmd:
+    python -m venv venv
+    venv\Scripts\activate.bat
+
+
+PASO 3: Actualizar pip
+-----------------------
+    python -m pip install --upgrade pip
+
+
+PASO 4: Instalar Dependencias Principales
+-----------------------------------------
+Instala todas las librerías necesarias:
+    pip install -r requirements.txt
+
+NOTA: Esto puede tardar varios minutos ya que incluye:
+- TensorFlow (Deep Learning)
+- PyTorch (Deep Learning alternativo)
+- Transformers (NLP)
+- Pandas, NumPy, Scikit-learn (Data Science)
+- APIs financieras y más
+
+Si hay errores con ta-lib en Windows:
+    pip install ta
+    # ta-lib requiere compilación, usa 'ta' como alternativa
+
+
+PASO 5: Instalar Modelos de NLP
+--------------------------------
+Para análisis de sentimiento de noticias:
+
+Descargar modelo de spaCy:
+    python -m spacy download en_core_web_sm
+
+Descargar datos de NLTK:
+    python -c "import nltk; nltk.download('vader_lexicon'); nltk.download('punkt'); nltk.download('stopwords')"
+
+
+PASO 6: Configurar Variables de Entorno
+---------------------------------------
+1. Crea un archivo llamado ".env" en la raíz del proyecto
+
+2. Agrega tus API keys (obtén las keys en los links indicados):
+
+FRED_API_KEY=tu_api_key_aqui
+# Obtener en: https://fred.stlouisfed.org/docs/api/api_key.html
+
+ALPHA_VANTAGE_API_KEY=tu_api_key_aqui
+# Obtener en: https://www.alphavantage.co/support/#api-key
+
+NEWS_API_KEY=tu_api_key_aqui
+# Obtener en: https://newsapi.org/register
+
+
+PASO 7: Verificar Instalación
+------------------------------
+Prueba que todo funciona:
+    python -c "import tensorflow as tf; print('TensorFlow:', tf.__version__)"
+    python -c "import torch; print('PyTorch:', torch.__version__)"
+    python -c "import pandas as pd; print('Pandas:', pd.__version__)"
+
+
+PASO 8: Probar Recolección de Datos
+-----------------------------------
+Una vez configurado el FRED_API_KEY:
+    python src/data_collection/fred_collector.py
+    python src/data_collection/market_collector.py
+
+
+SOLUCIÓN DE PROBLEMAS COMUNES
+==============================
+
+Error: "No module named 'tensorflow'"
+-> Asegúrate de haber activado el entorno virtual
+-> Reinstala: pip install tensorflow
+
+Error: Microsoft Visual C++ requerido (Windows)
+-> Instala Visual Studio Build Tools:
+   https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
+Error con ta-lib en Windows
+-> Usa la alternativa 'ta' en lugar de 'ta-lib'
+-> O descarga el wheel precompilado de:
+   https://www.lfd.uci.edu/~gohlke/pythonlibs/#ta-lib
+
+GPU no detectada (opcional, para entrenamiento más rápido)
+-> Instala tensorflow-gpu o pytorch con CUDA
+-> Requiere NVIDIA GPU y drivers CUDA
+
+
+PRÓXIMOS PASOS
+==============
+
+1. Obtén tus API keys
+2. Configura el archivo .env
+3. Ejecuta los recolectores de datos
+4. Explora los notebooks en notebooks/
+5. Entrena tu primer modelo
+
+Para más información, consulta el README.md
+
+
+¡Éxito con tu proyecto! 🚀📈
+
+
+
+

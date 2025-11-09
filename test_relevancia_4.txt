@@ -1,0 +1,16 @@
+**ANÁLISIS CUANTITATIVO DE EVENTO**
+
+**1. PROBABILIDAD DE IMPACTO:** **74%**
+El TOKEN DE IMPACTO base es 7.4/10. Dado que el VIX actual es NORMAL, el amplificador es x1.0. Por lo tanto, la probabilidad ajustada de un movimiento de mercado significativo es 74% (7.4 * 10 * 1.0).
+
+**2. DIRECCIÓN:** **NEUTRAL**
+La data histórica de 2,063 eventos pasados en esta categoría indica una distribución perfectamente equilibrada: 50% de los movimientos fueron alcistas y 50% bajistas. No existe un sesgo direccional.
+
+**3. MAGNITUD ESPERADA:** **±0.70%**
+La volatilidad promedio observada para este tipo de evento es de ±0.70% sobre el precio del activo.
+
+**4. RAZONAMIENTO:**
+El modelo ha clasificado el evento en la categoría **TERRORISM**, que presenta un TOKEN DE IMPACTO elevado (7.4/10). Los parámetros del modelo de Landau (α=0.2773, β=1.7045) confirman que el sistema es sensible a una transición de fase ante este estímulo. Sin embargo, el análisis estadístico de eventos históricos equivalentes no muestra una dirección predecible. En resumen, los datos predicen con alta probabilidad una reacción del mercado (un "impacto"), pero la dirección de esa reacción es estadísticamente aleatoria.
+
+**5. RECOMENDACIÓN:** **ESPERAR**
+Dada la alta probabilidad de impacto pero la completa incertidumbre direccional (50/50), la relación riesgo/beneficio es desfavorable para abrir nuevas posiciones. La estrategia prudente es esperar a que el mercado procese el evento.

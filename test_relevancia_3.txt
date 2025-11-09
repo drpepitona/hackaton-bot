@@ -1,0 +1,21 @@
+**ANÁLISIS CUANTITATIVO: FED_RATES**
+
+**1. PROBABILIDAD DE IMPACTO: 66.7%**
+
+El TOKEN DE IMPACTO base (5.8/10 o 58%) se ajusta por el contexto de mercado actual. Con un VIX en 25 (NERVIOSO), se aplica el amplificador de x1.15, elevando la probabilidad de un movimiento significativo a 66.7%.
+
+**2. DIRECCIÓN: NEUTRAL**
+
+El histórico de 298 eventos no muestra un sesgo direccional. La distribución es exactamente 50% alcista y 50% bajista, lo que indica que la dirección del próximo movimiento es estadísticamente impredecible.
+
+**3. MAGNITUD ESPERADA: ±0.52%**
+
+La volatilidad promedio observada en eventos pasados de esta categoría sugiere un movimiento de precios esperado en el rango de ±0.52% post-anuncio.
+
+**4. RAZONAMIENTO**
+
+El análisis se basa en un modelo de transición de fase. Los parámetros de Landau (α=0.2111, β=1.1778) y la división histórica 50/50 sugieren que el mercado está en un punto crítico ante este evento. Hay una alta probabilidad de reacción (66.7%), pero su dirección es aleatoria. La magnitud está acotada por la volatilidad histórica. El VIX elevado simplemente amplifica la certeza del impacto, no su dirección.
+
+**5. RECOMENDACIÓN: ESPERAR**
+
+Dado que no existe una ventaja estadística direccional (50/50), tomar una posición de COMPRA o VENTA es equivalente a un lanzamiento de moneda. La recomendación cuantitativa más prudente es ESPERAR a que el mercado absorba el evento y defina una dirección clara.

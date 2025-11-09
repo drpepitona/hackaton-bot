@@ -1,0 +1,52 @@
+{
+  "DCOILWTICO": {
+    "nombre": "Crude Oil WTI (West Texas Intermediate)",
+    "unidad": "Dólares por barril",
+    "frecuencia": "Diaria",
+    "impacto": "ALTO - Precio de referencia USA",
+    "observaciones": 6741,
+    "fecha_inicio": "2000-01-03 00:00:00",
+    "fecha_fin": "2025-11-03 00:00:00",
+    "ultimo_valor": 61.79
+  },
+  "DCOILBRENTEU": {
+    "nombre": "Crude Oil Brent - Europe",
+    "unidad": "Dólares por barril",
+    "frecuencia": "Diaria",
+    "impacto": "ALTO - Precio de referencia global",
+    "observaciones": 6741,
+    "fecha_inicio": "2000-01-03 00:00:00",
+    "fecha_fin": "2025-11-03 00:00:00",
+    "ultimo_valor": 65.79
+  },
+  "MCOILWTICO": {
+    "nombre": "Crude Oil WTI (Monthly Average)",
+    "unidad": "Dólares por barril",
+    "frecuencia": "Mensual",
+    "impacto": "ALTO",
+    "observaciones": 310,
+    "fecha_inicio": "2000-01-01 00:00:00",
+    "fecha_fin": "2025-10-01 00:00:00",
+    "ultimo_valor": 60.89
+  },
+  "GASREGW": {
+    "nombre": "US Regular Gas Price",
+    "unidad": "Dólares por galón",
+    "frecuencia": "Semanal",
+    "impacto": "MEDIO - Afecta inflación",
+    "observaciones": 1349,
+    "fecha_inicio": "2000-01-03 00:00:00",
+    "fecha_fin": "2025-11-03 00:00:00",
+    "ultimo_valor": 3.019
+  },
+  "GASDESW": {
+    "nombre": "US Diesel Gas Price",
+    "unidad": "Dólares por galón",
+    "frecuencia": "Semanal",
+    "impacto": "MEDIO",
+    "observaciones": 1349,
+    "fecha_inicio": "2000-01-03 00:00:00",
+    "fecha_fin": "2025-11-03 00:00:00",
+    "ultimo_valor": 3.753
+  }
+}
