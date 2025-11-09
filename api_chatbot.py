@@ -156,6 +156,15 @@ async def analyze_news(request: AnalysisRequest):
         raise HTTPException(status_code=500, detail=f"Error al analizar: {str(e)}")
 
 
+@app.post("/chat")
+async def chat_endpoint(request: AnalysisRequest):
+    """
+    Endpoint alternativo para compatibilidad con frontend
+    Redirige a /analyze
+    """
+    return await analyze_news(request)
+
+
 @app.get("/categories")
 async def get_categories():
     """Obtener lista de categorías disponibles con sus parámetros"""
